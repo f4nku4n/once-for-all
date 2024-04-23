@@ -12,7 +12,7 @@ import multiprocessing as python_multiprocessing
 import torch
 import torch.multiprocessing as multiprocessing
 from torch._utils import ExceptionWrapper
-from torch._six import string_classes
+# from torch._six import str
 import queue
 from torch.utils.data.dataset import IterableDataset
 from torch.utils.data import Sampler, SequentialSampler, RandomSampler, BatchSampler
@@ -248,7 +248,7 @@ class MyDataLoader(object):
 					raise ValueError('multiprocessing_context relies on Python >= 3.4, with '
 					                 'support for different start methods')
 
-				if isinstance(multiprocessing_context, string_classes):
+				if isinstance(multiprocessing_context, str):
 					valid_start_methods = multiprocessing.get_all_start_methods()
 					if multiprocessing_context not in valid_start_methods:
 						raise ValueError(
